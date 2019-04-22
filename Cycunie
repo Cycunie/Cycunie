@@ -1,0 +1,80 @@
+import datetime
+import discord
+
+
+
+class MyClient(discord.Client):
+    async def on_ready(self):
+        print('Logged in as')
+        print(self.user.name)
+        print(self.user.id)
+        print('------')
+
+    async def on_message(self, message):
+        # we do not want the bot to reply to itself
+        if message.author.id == self.user.id:
+            return
+
+        t = datetime.datetime.today()
+        if message.content.startswith('godzina'):
+          await  message.channel.send(t)
+
+        if message.content.startswith('Siema'):
+            await message.channel.send('No elo kurwa {0.author.mention}'.format(message))
+
+        if message.content.startswith('siema'):
+            await message.channel.send('No elo kurwa {0.author.mention}'.format(message))
+
+        if message.content.startswith('Nawrocki'):
+            await message.channel.send('Masz stulejke')
+
+        if message.content.startswith('nawrocki'):
+            await message.channel.send('Masz stulejke')
+
+        if message.content.startswith('XD'):
+            await message.channel.send('Ta jak twoje życie')
+
+        if message.content.startswith('Zając'):
+            await message.channel.send('Masno ni')
+
+        if message.content.startswith('zając'):
+            await message.channel.send('Masno ni')
+
+        if message.content.startswith('Zając'):
+            await message.channel.send('Masno ni')
+
+        if message.content.startswith('zajac'):
+            await message.channel.send('Masno ni')
+
+        if message.content.startswith('igor'):
+            await message.channel.send('No to jest kurwa jebana'.format(message))
+
+        if message.content.startswith('Igor'):
+            await message.channel.send('No to jest kurwa jebana'.format(message))
+
+        if message.content.startswith('2137'):
+            await message.channel.send('HA HA paież umar i to jest śmieszne, bo masz kurwa 12 lat smrodzie jebany')
+
+        if message.content.startswith('dobranoc'):
+            await message.channel.send('Spierdalaj')
+
+        if message.content.startswith('Dobranoc'):
+            await message.channel.send('Spierdalaj')
+
+        if message.content.startswith('Cycunie'):
+            await message.channel.send('Ryj!')
+
+        if message.content.startswith('cycunie'):
+            await message.channel.send('Ryj!')
+
+        if message.content.startswith('@Cycunie#8976'):
+            await message.channel.send('Ryj!')
+
+        if message.content.startswith('?'):
+            await message.channel.send('siema, igor, 2137, dobranoc, cycunie')
+
+
+
+
+client = MyClient()
+client.run('NTY5NjU3MDkwODg1NDE5MDE5.XLz1jg.jqELlhNSy5pINy8TSo4crqvJDIo')
